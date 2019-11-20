@@ -3,6 +3,7 @@ Version 1.7.4.9000
 
 ### NEW FEATURES
 
+* Format and print methods for 0-length objects are more consistent. 
 * [#707](https://github.com/tidyverse/lubridate/issues/707) Constructors return 0-length inputs when called with no arguments
 * [#672](https://github.com/tidyverse/lubridate/issues/672) Eliminate all partial argument matches
 * [#705](https://github.com/tidyverse/lubridate/issues/705) all deprecated functions have been removed
