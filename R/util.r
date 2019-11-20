@@ -122,12 +122,6 @@ parse_period_unit <- function(unit) {
   }
 }
 
-undefined_arithmetic <- function(e1, e2) {
-  msg <- sprintf("Arithmetic operators undefined for '%s' and '%s' classes:
-  convert one to numeric or a matching time-span class.", class(e1), class(e2))
-  stop(msg)
-}
-
 date_to_posix <- function(date, tz = "UTC") {
   utc <- .POSIXct(unclass(date) * 86400, tz = "UTC")
   if (tz == "UTC") utc
@@ -146,4 +140,10 @@ date_to_posix <- function(date, tz = "UTC") {
 
   return(x)
 
+}
+
+stop_incompatible_classes <- function(x, y, method) {
+  abort(paste0(
+    "Incompatible classes: <", is(x)[[1]], "> ", method, " <", is(y)[[1]], ">\n"
+  ))
 }

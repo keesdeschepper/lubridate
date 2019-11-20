@@ -115,12 +115,12 @@ setMethod("/", signature(e1 = "Duration", e2 = "Duration"),
 
 #' @export
 setMethod("/", signature(e1 = "Duration", e2 = "Interval"), function(e1, e2) {
-  stop("Incompatible timespan classes:\n  change class with as.duration() or put interval in numerator.")
+  stop_incompatible_classes(e1, e2, "/")
 })
 
 #' @export
 setMethod("/", signature(e1 = "Duration", e2 = "Period"), function(e1, e2) {
-  stop("Incompatible timespan classes:\n  change class with as.duration() or as.period()")
+  stop_incompatible_classes(e1, e2, "/")
 })
 
 #' @export
@@ -138,7 +138,7 @@ setMethod("/", signature(e1 = "Interval", e2 = "Duration"),
 
 #' @export
 setMethod("/", signature(e1 = "Interval", e2 = "Interval"), function(e1, e2) {
-  stop("interval / interval not defined")
+  stop_incompatible_classes(e1, e2, "/")
 })
 
 #' @export
@@ -156,12 +156,12 @@ setMethod("/", signature(e1 = "Interval", e2 = "numeric"),
 
 #' @export
 setMethod("/", signature(e1 = "Period", e2 = "Duration"), function(e1, e2) {
-  stop("Incompatible timespan classes:\n  change class with as.duration() or as.period()")
+  stop_incompatible_classes(e1, e2, "/")
 })
 
 #' @export
 setMethod("/", signature(e1 = "Period", e2 = "Interval"), function(e1, e2) {
-  stop("Incompatible timespan classes:\n  change class with as.period() or put interval in numerator.")
+  stop_incompatible_classes(e1, e2, "/")
 })
 
 #' @export
@@ -170,7 +170,7 @@ setMethod("/", signature(e1 = "Period", e2 = "Period"),
 
 #' @export
 setMethod("/", signature(e1 = "Period", e2 = "difftime"), function(e1, e2) {
-  stop("Incompatible timespan classes:\n  change class with as.duration() or as.period()")
+  stop_incompatible_classes(e1, e2, "/")
 })
 
 #' @export
@@ -185,23 +185,22 @@ setMethod("/", signature(e1 = "difftime", e2 = "Duration"),
 
 #' @export
 setMethod("/", signature(e1 = "difftime", e2 = "Interval"), function(e1, e2) {
-  stop("Incompatible timespan classes:\n  change class with as.duration() or put interval in numerator.")
+  stop_incompatible_classes(e1, e2, "/")
 })
 
 #' @export
 setMethod("/", signature(e1 = "difftime", e2 = "Period"), function(e1, e2) {
-  stop("Incompatible timespan classes:\n  change class with as.duration() or as.period()")
+  stop_incompatible_classes(e1, e2, "/")
 })
 
 
 
 #' @export
 setMethod("/", signature(e1 = "numeric", e2 = "Duration"),
-          function(e1, e2) stop("Cannot divide numeric by duration"))
-
+          function(e1, e2) stop_incompatible_classes(e1, e2, "/"))
 #' @export
 setMethod("/", signature(e1 = "numeric", e2 = "Interval"),
-          function(e1, e2) stop("Cannot divide numeric by interval"))
+          function(e1, e2) stop_incompatible_classes(e1, e2, "/"))
 #' @export
 setMethod("/", signature(e1 = "numeric", e2 = "Period"),
-          function(e1, e2) stop("Cannot divide numeric by period"))
+          function(e1, e2) stop_incompatible_classes(e1, e2, "/"))
