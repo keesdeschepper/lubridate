@@ -158,6 +158,7 @@
 #' @importFrom utils packageVersion read.delim
 #' @importFrom stats na.omit setNames update
 #' @importFrom Rcpp sourceCpp
+#' @import rlang
 #' @useDynLib lubridate, .registration=TRUE
 #' @keywords internal
 "_PACKAGE"
